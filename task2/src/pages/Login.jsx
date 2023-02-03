@@ -14,6 +14,7 @@ const Login = () => {
               type="email" 
               value={loginData.email} 
               name="email" 
+              placeholder='Enter Your Email'
               onChange={(e)=>handleChange(e)} 
           />
         </label><br />
@@ -22,6 +23,7 @@ const Login = () => {
           <input 
               type="password" 
               value={loginData.password} 
+              placeholder='Enter Password'
               name="password" 
               onChange={(e)=>handleChange(e)} 
           />
