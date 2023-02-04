@@ -1,47 +1,16 @@
 import React, { useState } from "react";
-import { FormBuilder, Formio } from "react-formio";
+import { Formio } from "react-formio";
 import "formiojs/dist/formio.full.css";
+import { FormBuilder } from '@formio/react';
 
 
 const formIoData = {
   display: "form",
-  components: [
-    // {
-    //   label: "Checkbox",
-    //   tableView: false,
-    //   key: "checkbox",
-    //   type: "checkbox",
-    //   input: true
-    // },
-
-    // {
-    //   label: "Text Field",
-    //   tableView: true,
-    //   validate: {
-    //     // pattern: "/^([A-Z][a-z .'-]*)*$/",
-    //     customMessage: "Test error",
-    //     // "custom": "valid = (input !== 'Joe')",
-    //     minLength: 3,
-    //     maxLength: 10
-    //   },
-    //   errorLabel: "Please fill in only letters.",
-    //   key: "textField",
-    //   type: "textfield",
-    //   input: true
-    // },
-    // {
-    //   type: "button",
-    //   label: "Submit",
-    //   key: "submit",
-    //   disableOnInvalid: true,
-    //   input: true,
-    //   tableView: false
-    // }
-  ]
+  components: []
 };
 
 function App() {
-  const [formData, setFormData] = useState([]);
+  const [formData, setFormData] = useState(formIoData);
   const printResult = () => {
     Formio.createForm(document.getElementById("formio-result"), {
       components: formData.components
@@ -57,22 +26,9 @@ function App() {
         <button className="green" onClick={printResult}>
           display result
         </button>
-
-        <FormBuilderIo
-          form={formData}
-          //onChange={schema => setFormData(schema)}
-          // onSubmit={(data) => {
-          //   console.log(data);
-          // }}
-          // saveForm={(data) => setFormData(data)}
-          // saveText="Save Form"
-           onSubmitDone={(data) => console.log(data)}
-           
-           
-        />
-        {/* <div style={{ display: "none" }}>
-          <div id="formio-result" />
-        </div> */}
+        <FormBuilder form={formData}
+           onChange={(schema) => console.log("schema",schema)}                  
+         />, document.getElementById('builder')   
     </div>
   );
 }
