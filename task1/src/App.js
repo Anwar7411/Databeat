@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Formio } from "react-formio";
 import "formiojs/dist/formio.full.css";
 import { FormBuilder } from '@formio/react';
 
@@ -11,15 +10,9 @@ const formIoData = {
 
 function App() {
   const [formData, setFormData] = useState(formIoData);
-  const printResult = () => {
-    Formio.createForm(document.getElementById("formio-result"), {
-      components: formData.components
-    }).then((form) => {
-      console.log(form.component.components);
-      form.on("submit", (data) => console.log("submit", data));
-    });
-    
-  };
+  const printResult=()=>{
+    console.log(formData)
+  }
   return (
     <div className="App">
        
