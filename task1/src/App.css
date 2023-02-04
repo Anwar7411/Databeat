@@ -3,28 +3,28 @@
   text-align: center;
 }
 
-.float-right {
-  float: right;
-}
-.float-left {
-  float: left;
-}
-button {
+
+.buttons button{
+  background-color: rgb(241, 82, 24);
+  color: white;
+  border-radius: 7px;
+  margin: 25px 0px;
   border: none;
   padding: 8px;
-  margin-right: 2px;
+  font-size: 17px;
+  font-weight: 400;
+  cursor: pointer;
 }
-.blue {
-  background-color: blue;
-  color: white;
-  border: none;
-  padding: 8px;
+
+.buttons div{
+  cursor: pointer;
 }
-.green {
-  background-color: darkolivegreen;
-  color: white;
+
+.buttons{
+  display: flex;
+  justify-content: center;
+  gap:30px;
+  align-items: center;
 }
-.btn-toolbar {
-  padding-bottom: 10px;
-  /* margin: auto; */
-}
+
+
