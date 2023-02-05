@@ -4,8 +4,7 @@ import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import { MutatingDots } from 'react-loader-spinner'
 import EachCard from '../components/EachCard'
-import { Alert, Snackbar } from '@mui/material'
-
+import "./Home.css";
 
 const Home = () => {
     const[page,setPage]=useState(1);
@@ -13,7 +12,7 @@ const Home = () => {
     const[data,setData]=useState([]);
     const[loading,setLoading]=useState(true);
 
-    const {loginData,isAuth,opensuccess,setOpenLogin,handleClose,}=useContext(AppContext);
+    const {loginData,isAuth, setOpenError}=useContext(AppContext);
     const navigate=useNavigate();
 
     const getData=()=>{
@@ -38,10 +37,10 @@ const Home = () => {
     
       useEffect(()=>{
         if(!isAuth){
-          setOpenLogin(true)
+          setOpenError({bool:true,mssg:"Please Login!"})
           navigate("/login")
         }
-      })
+      },[])
 
     useEffect(()=>{
       getData()
@@ -53,8 +52,8 @@ const Home = () => {
     }, []);
 
   return (
-    <div>
-      <div>
+<div>
+      <div className='homePage-cardContainer'>
       {
         data && data.map((el)=>(
           <EachCard el={el}/>
@@ -77,11 +76,6 @@ const Home = () => {
          />:""
         }
       </div>
-      <Snackbar open={opensuccess} autoHideDuration={1000} onClose={handleClose}   anchorOrigin={{ vertical:"top", horizontal:"center" }}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: '100%',backgroundColor: "#4d9a51" }}>
-           Login Successfull
-        </Alert>
-      </Snackbar>
     </div>
   )
 }

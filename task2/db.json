@@ -1,10 +1,22 @@
 {
-  "user":[
-            {
-                "id":1,
-                "name":"anwar",
-                "email":"anwar@gmail.com",
-                "password":"anwar"
-            }
-          ]
+  "user": [
+    {
+      "id": 1,
+      "name": "anwar",
+      "email": "anwar@gmail.com",
+      "password": "anwar"
+    },
+    {
+      "name": "basha",
+      "email": "basha@gmail.com",
+      "password": "basha",
+      "id": 2
+    },
+    {
+      "name": "reshma",
+      "email": "reshma@gmail.com",
+      "password": "reshma",
+      "id": 3
+    }
+  ]
 }

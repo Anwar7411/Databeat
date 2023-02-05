@@ -1,0 +1,453 @@
+.loginForm {
+    width: 100%;
+    height: 99.5vh;
+    margin: auto;
+    background-image: linear-gradient(rgba(32, 32, 80, 0.8), rgba(36, 36, 83, 0.8)), url(loginBackground.jpeg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    position: relative;
+}
+
+.form-parent-div {
+    width: 85%;
+    max-width: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px 40px 40px;
+    text-align: center;
+}
+
+.form-login-div {
+    width: 85%;
+    max-width: 350px;
+    max-height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px 40px 30px;
+    text-align: center;
+}
+
+.form-parent-div h1 {
+    font-size: 30px;
+    margin-bottom: 40px;
+    color: #3c00a0;
+    position: relative;
+}
+
+.form-login-div h1 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #3c00a0;
+    position: relative;
+}
+
+.form-parent-div h1::after {
+    content: '';
+    width: 30px;
+    height: 4px;
+    border-radius: 3px;
+    background: #3c00a0;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.form-login-div h1::after {
+    content: '';
+    width: 30px;
+    height: 4px;
+    border-radius: 3px;
+    background: #3c00a0;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.input-field {
+    background: #eaeaea;
+    margin: 15px 0px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 18px 15px;
+}
+
+.input-icons {
+  margin-left: 15px;
+  margin-right: 10px;
+  color: #999;
+}
+
+.btn-field {
+    width: 100%;
+    display: flex;
+    margin-top: -30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-field-login {
+    width: 100%;
+    margin-top: -100px;
+     display: flex;
+    justify-content: center;
+}
+
+.btn-field-login input {
+    flex-basis: 48%;
+    background: #3c00a0;
+    color: #fff;
+    height: 45px;
+    border-radius: 20px;
+    border: 0;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-field input {
+    flex-basis: 48%;
+    background: #3c00a0;
+    color: #fff;
+    height: 45px;
+    border-radius: 20px;
+    border: 0;
+    cursor: pointer;
+    transition: background 1s;
+}
+
+.input-group {
+    height: 280px;
+}
+
+.btn-field button.disable {
+   background: #eaeaea;
+   color: #555;
+}
+
+.loginOption {
+    color: #555;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.loginOption>a {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+@media screen  and (min-width: 280px) and (max-width: 420px) {
+    .form-login-div {
+        width: 80%;
+        max-width: 150px;
+        max-height: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        background-color: white; 
+        text-align: center;
+        padding: 10px 40px 30px;
+    }
+    .form-parent-div {
+        width: 80%;
+        max-width: 150px;
+        max-height: 280px;
+        padding: 10px 40px 30px;
+    }
+    .form-login-div h1 {
+        font-size: 20px;
+        margin-bottom: 30px;
+        color: #3c00a0;
+        position: relative;
+    }
+    .form-parent-div h1 {
+        font-size: 20px;
+        margin-bottom: 30px;
+        color: #3c00a0;
+        position: relative;
+    }
+    .input-field {
+        background: #eaeaea;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+    }
+    input {
+        width: 100%;
+        background: transparent;
+        border: 0;
+        outline: 0;
+        padding: 5px 5px;
+        font-size: 11px;
+    }
+    .input-icons {
+        margin-left: 5px;
+        margin-right: 5px;
+        color: #999;
+        size: small;
+      }
+    .btn-field-login {
+        width: 100%;
+        display: flex;
+        margin-top: -130px;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn-field {
+        width: 100%;
+        display: flex;
+        margin-top: -115px;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn-field-login input {
+        flex-basis: 60%;
+        background: #3c00a0;
+        color: #fff;
+        height: 35px;
+        border-radius: 20px;
+        border: 0;
+        cursor: pointer;
+        transition: background 1s;
+        font-size: 14px;
+        text-align: center;
+    }
+    .btn-field input {
+        flex-basis: 75%;
+        background: #3c00a0;
+        color: #fff;
+        height: 35px;
+        border-radius: 20px;
+        border: 0;
+        cursor: pointer;
+        transition: background 1s;
+        font-size: 14px;
+        text-align: center;
+    }
+    .loginOption {
+        color: #555;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .loginOption>a {
+        margin-left: 5px;
+        font-size: 14px;
+    }
+}
+
+@media screen  and (min-width: 420px) and (max-width: 620px) {
+    .form-login-div {
+        width: 80%;
+        max-width: 200px;
+        max-height: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        background-color: white; 
+        text-align: center;
+        padding: 10px 40px 30px;
+    }
+    .form-parent-div {
+        width: 80%;
+        max-width: 200px;
+        max-height: 300px;
+        padding: 10px 40px 30px;
+    }
+    .form-login-div h1 {
+        font-size: 20px;
+        margin-bottom: 30px;
+        color: #3c00a0;
+        position: relative;
+    }
+    .form-parent-div h1 {
+        font-size: 20px;
+        margin-bottom: 30px;
+        color: #3c00a0;
+        position: relative;
+    }
+    .input-field {
+        background: #eaeaea;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+    }
+    input {
+        width: 100%;
+        background: transparent;
+        border: 0;
+        outline: 0;
+        padding: 10px 10px;
+    }
+    .input-icons {
+        margin-left: 5px;
+        margin-right: 5px;
+        color: #999;
+        size: small;
+      }
+    .btn-field-login {
+        width: 100%;
+        display: flex;
+        margin-top: -130px;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn-field {
+        width: 100%;
+        display: flex;
+        margin-top: -85px;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn-field-login input {
+        flex-basis: 50%;
+        background: #3c00a0;
+        color: #fff;
+        height: 35px;
+        border-radius: 20px;
+        border: 0;
+        cursor: pointer;
+        transition: background 1s;
+        font-size: 14px;
+        text-align: center;
+    }
+    .btn-field input {
+        flex-basis: 48%;
+        background: #3c00a0;
+        color: #fff;
+        height: 35px;
+        border-radius: 20px;
+        border: 0;
+        cursor: pointer;
+        transition: background 1s;
+        font-size: 14px;
+        text-align: center;
+    }
+    .loginOption {
+        color: #555;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .loginOption>a {
+        margin-left: 5px;
+        font-size: 14px;
+    }
+}
+
+@media screen  and (min-width: 620px) and (max-width: 1050px) {
+    .form-login-div {
+        width: 80%;
+        max-width: 250px;
+        max-height: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        background-color: white; 
+        text-align: center;
+        padding: 10px 40px 30px;
+    }
+    .form-parent-div {
+        width: 80%;
+        max-width: 250px;
+        max-height: 320px;
+        padding: 10px 40px 30px;
+    }
+    .form-login-div h1 {
+        font-size: 20px;
+        margin-bottom: 30px;
+        color: #3c00a0;
+        position: relative;
+    }
+    .form-parent-div h1 {
+        font-size: 20px;
+        margin-bottom: 30px;
+        color: #3c00a0;
+        position: relative;
+    }
+    .input-field {
+        background: #eaeaea;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+    }
+    input {
+        width: 100%;
+        background: transparent;
+        border: 0;
+        outline: 0;
+        padding: 12px 12px;
+    }
+    .input-icons {
+        margin-left: 5px;
+        margin-right: 5px;
+        color: #999;
+        size: small;
+      }
+    .btn-field-login {
+        width: 100%;
+        display: flex;
+        margin-top: -130px;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn-field {
+        width: 100%;
+        display: flex;
+        margin-top: -65px;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn-field-login input {
+        flex-basis: 50%;
+        background: #3c00a0;
+        color: #fff;
+        height: 38px;
+        border-radius: 20px;
+        border: 0;
+        cursor: pointer;
+        transition: background 1s;
+        font-size: 14px;
+        text-align: center;
+    }
+    .btn-field input {
+        flex-basis: 48%;
+        background: #3c00a0;
+        color: #fff;
+        height: 35px;
+        border-radius: 20px;
+        border: 0;
+        cursor: pointer;
+        transition: background 1s;
+        font-size: 14px;
+        text-align: center;
+    }
+    .loginOption {
+        color: #555;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .loginOption>a {
+        margin-left: 5px;
+        font-size: 14px;
+    }
+}
