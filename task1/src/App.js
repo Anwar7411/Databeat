@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import "formiojs/dist/formio.full.css";
 import { FormBuilder } from '@formio/react';
 import './App.css'
@@ -12,6 +12,7 @@ const formIoData = {
   display: "form",
   components: []
 };
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -28,52 +29,71 @@ const style = {
 function App() {
   const [formData, setFormData] = useState(formIoData);
   const [jsondata, setJsondata] = useState([]);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [undo,setUndo]= useState(formIoData)
+  const [redo,setRedo]= useState(formIoData)
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const stack1 = formIoData;
-  const stack2 = formIoData;
+  const ref=useRef();
 
   const printResult = () => {
-    let json = []
+    let json = {
+      "components":[]
+    };
     formData.components?.forEach((el, i) => {
       let obj = {}
       if (el?.data?.values!==undefined) {
         obj = {
-          "headings": [{ "heading": `${el.label}` }],
+          "headings": [
+                       { 
+                        "heading": `${el.label}` 
+                       }
+                      ],
           "position": i + 1,
           "family": el.key,
           "answers": el.data.values
         }
       } else {
         obj = {
-          "headings": [{ "heading": `${el.label}` }],
+          "headings": [
+                        { 
+                         "heading": `${el.label}` 
+                        }
+                      ],
           "position": i + 1,
           "family": el.key,
         }
       }
-      json.push(obj);
+      json.components.push(obj);
 
     })
     setJsondata(json);
-    handleOpen() ;
+    handleOpen();
   }
 
   const handleclear = () => {
-    setFormData(formIoData)
+    setFormData({
+      display: "form",
+      components: []
+    });
   }
 
   const handleundo = () => {
-    // stack2.components.push(stack1.components[stack1.components.length-1]);
-    // stack1.components.pop();
-    // setFormData(stack1)
-    // console.log()
+    console.log("in undo",ref)
+    if(undo.components.length>1){
+    setRedo(undo)
+    setFormData(undo)
+    setUndo({})
+    }
   }
 
   const handlredo = () => {
-    // setFormData(stack2)
-    // stack2.components.pop();
+    if(redo.components.length>0){
+    setFormData(redo);
+    setUndo(redo);
+    setRedo({});
+    }
   }
   console.log("form", formData)
   return (
@@ -95,7 +115,12 @@ function App() {
 
       <FormBuilder
         form={formData}
-        onChange={(schema) => setFormData(schema)}
+        onChange={(schema) =>{ 
+          console.log("onchange 123")
+          ref.current=formData;
+          setUndo(formData);
+          setFormData(schema);
+        }}
       />
 
       <div>
@@ -110,7 +135,7 @@ function App() {
               JSON :
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              {JSON.stringify(jsondata)}
+             {JSON.stringify(jsondata, undefined, 30)}
             </Typography>
           </Box>
         </Modal>
