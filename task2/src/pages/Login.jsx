@@ -7,8 +7,7 @@ import{Link} from 'react-router-dom'
 import "./Login.css"
 
 const Login = () => {
-  const { loginData, openerror, opensuccess,
-    handleChange, handleSubmit, handleClose } = useContext(AppContext)
+  const { loginData, openerror, opensuccess, handleChange, handleSubmit, handleClose } = useContext(AppContext)
 
   return (
     <div className='loginForm'>
@@ -48,14 +47,14 @@ const Login = () => {
     </div>
 
     <Snackbar open={openerror.bool} autoHideDuration={1000} onClose={handleClose}   anchorOrigin={{ vertical:"top", horizontal:"center" }}>
-            <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
-               {openerror.mssg}
-             </Alert>
+      <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+          {openerror.mssg}
+      </Alert>
     </Snackbar>
     <Snackbar open={opensuccess.bool} autoHideDuration={1000} onClose={handleClose}   anchorOrigin={{ vertical:"top", horizontal:"center" }}>
-             <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-               {opensuccess.mssg}
-             </Alert>
+      <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+        {opensuccess.mssg}
+      </Alert>
     </Snackbar>
   </div>
   )

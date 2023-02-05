@@ -8,8 +8,8 @@ import LockIcon from '@mui/icons-material/Lock';
 import "./Login.css"
 
 const Signup = () => {
-    const {handlesignupSubmit,handlesignupchange,
-            signupData,openerror, opensuccess,handleClose  } = useContext(AppContext)
+    const {handlesignupSubmit,handlesignupchange,signupData,openerror,opensuccess,handleClose  } = useContext(AppContext)
+    
   return (
     <div className='loginForm'>
         <div className='form-parent-div'>

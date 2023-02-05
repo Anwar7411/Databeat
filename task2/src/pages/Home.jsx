@@ -7,12 +7,12 @@ import EachCard from '../components/EachCard'
 import "./Home.css";
 
 const Home = () => {
-    const[page,setPage]=useState(1);
-    const[limit,setlimit]=useState(9);
-    const[data,setData]=useState([]);
-    const[loading,setLoading]=useState(true);
+    const[page, setPage]=useState(1);
+    const[limit, setlimit]=useState(9);
+    const[data, setData]=useState([]);
+    const[loading, setLoading]=useState(true);
 
-    const {loginData,isAuth, setOpenError}=useContext(AppContext);
+    const { loginData,isAuth, setOpenError }=useContext(AppContext);
     const navigate=useNavigate();
 
     const getData=()=>{
@@ -20,7 +20,7 @@ const Home = () => {
        .then((res)=>
            {
             setData((prev) => [...prev, ...res.data.data]);
-            setLoading(false)
+            setLoading(false);
            }
             )
     }
@@ -31,19 +31,19 @@ const Home = () => {
           document.documentElement.scrollHeight
         ) {
           setPage((prev) => prev + 1);
-          setLoading(true)
+          setLoading(true);
         }
       } 
     
-      useEffect(()=>{
+    useEffect(() => {
         if(!isAuth){
-          setOpenError({bool:true,mssg:"Please Login!"})
-          navigate("/login")
+          setOpenError({bool:true,mssg:"Please Login!"});
+          navigate("/login");
         }
-      },[])
+    },[])
 
-    useEffect(()=>{
-      getData()
+    useEffect(() => {
+      getData();
     },[page])
     
     useEffect(() => {
@@ -52,13 +52,12 @@ const Home = () => {
     }, []);
 
   return (
-<div>
+    <div>
       <div className='homePage-cardContainer'>
       {
         data && data.map((el)=>(
           <EachCard el={el}/>
-        ))
-        
+        ))   
       }
       </div>
       <div>

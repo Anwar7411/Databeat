@@ -7,19 +7,19 @@ export const AppContext = createContext();
 const AppContextProvider = ({ children }) => {
 
   const [loginData, setLoginData] = useState({ email: "", password: "" })
-  const [signupData,setSignupData]=useState({name:"",email:"",password:""})
-  const[data,setData]=useState([])
+  const [signupData, setSignupData]=useState({ name:"", email:"", password:"" })
+  const [data, setData]=useState([])
   const [isAuth, setIsAuth] = useState(false);
-  const [openerror,setOpenError] =useState({bool:false,mssg:""});
-  const [opensuccess,setOpenSuccess] =useState({bool:false,mssg:""});
+  const [openerror, setOpenError] =useState({ bool:false, mssg:"" });
+  const [opensuccess, setOpenSuccess] =useState({ bool:false, mssg:"" });
 
-  useEffect(()=>{
-  axios.get("https://databeatdb.onrender.com/user")
-  .then((res)=>{setData(res.data)})
-  .catch((err)=>console.log(err))
-  },[])
-   
   const navigate=useNavigate();
+  
+  useEffect(() => {
+    axios.get("https://databeatdb.onrender.com/user")
+    .then((res)=>{setData(res.data)})
+    .catch((err)=>console.log(err))
+  },[])
 
   const handleChange = (e) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });

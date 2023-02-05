@@ -30,19 +30,21 @@ function App() {
   const [formData, setFormData] = useState(formIoData);
   const [jsondata, setJsondata] = useState([]);
   const [open, setOpen] = useState(false);
-  const [undo,setUndo]= useState(formIoData)
-  const [redo,setRedo]= useState(formIoData)
+  const [undo, setUndo] = useState(formIoData);
+  const [redo, setRedo] = useState(formIoData);
+
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const ref=useRef();
+  const ref = useRef();
 
   const printResult = () => {
     let json = {
       "components":[]
     };
     formData.components?.forEach((el, i) => {
-      let obj = {}
+      let obj = {};
       if (el?.data?.values!==undefined) {
         obj = {
           "headings": [
@@ -80,11 +82,10 @@ function App() {
   }
 
   const handleundo = () => {
-    console.log("in undo",ref)
     if(undo.components.length>1){
-    setRedo(undo)
-    setFormData(undo)
-    setUndo({})
+    setRedo(undo);
+    setFormData(undo);
+    setUndo({});
     }
   }
 
@@ -95,7 +96,7 @@ function App() {
     setRedo({});
     }
   }
-  console.log("form", formData)
+
   return (
     <div className="App">
       <div className="buttons">
@@ -116,7 +117,6 @@ function App() {
       <FormBuilder
         form={formData}
         onChange={(schema) =>{ 
-          console.log("onchange 123")
           ref.current=formData;
           setUndo(formData);
           setFormData(schema);
