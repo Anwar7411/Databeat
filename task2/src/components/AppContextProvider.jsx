@@ -14,7 +14,7 @@ const AppContextProvider = ({ children }) => {
   const [opensuccess,setOpenSuccess] =useState({bool:false,mssg:""});
 
   useEffect(()=>{
-  axios.get("http://localhost:8080/user")
+  axios.get("https://databeatdb.onrender.com/user")
   .then((res)=>{setData(res.data)})
   .catch((err)=>console.log(err))
   },[])
@@ -66,7 +66,7 @@ const AppContextProvider = ({ children }) => {
     event.preventDefault();
     if(signupData.name && signupData.email && signupData.password){
       console.log("signup",signupData)
-      axios.post("http://localhost:8080/user",signupData)
+      axios.post("https://databeatdb.onrender.com/user",signupData)
       .then(()=>{
         setOpenSuccess({bool:true,mssg:"Signup Successfull!"})
         setIsAuth(true);
